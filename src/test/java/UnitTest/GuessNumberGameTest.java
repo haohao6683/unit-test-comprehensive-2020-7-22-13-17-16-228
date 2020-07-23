@@ -13,7 +13,7 @@ public class GuessNumberGameTest {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "1234";
+        String inputString = "1234";   
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
