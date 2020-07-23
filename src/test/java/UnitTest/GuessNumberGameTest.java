@@ -64,7 +64,7 @@ public class GuessNumberGameTest {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "4321"; 
+        String inputString = "4321";
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
@@ -76,12 +76,12 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    void should_return_0A1B_when_guess_given_5671() {
+    void should_return_0A1B_when_guess_given_5681() {
         //given
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "5671";
+        String inputString = "5681";
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
