@@ -42,12 +42,12 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    void should_return_1A1B_when_guess_given_1456() {
+    void should_return_1A1B_when_guess_given_1467() {
         //given
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "1456";
+        String inputString = "1467";
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
