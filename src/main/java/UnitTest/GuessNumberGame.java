@@ -1,6 +1,8 @@
 package UnitTest;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
 
 public class GuessNumberGame {
     private String answer;
@@ -44,4 +46,42 @@ public class GuessNumberGame {
         return aNum;
     }
 
+    public boolean validate(String input) {
+        if (input.length() != 4) {
+            return false;
+        }
+        if (!input.matches("\\d{4}")) {//0-9 number
+            return false;
+        }
+        HashSet<String> hashSet = new HashSet<String>();
+        for (int i = 0; i < input.length(); i++) {
+            hashSet.add(String.valueOf(input.charAt(i)));
+        }
+        if (hashSet.size() != input.length()) {
+            return false;
+        }
+//        for (int i = 0; i < 4; i++) {
+//            if (input.lastIndexOf(input.charAt(i)) > i) {//查重
+//                return false;
+//            }
+//        }
+        return true;
+    }
+
+    public int getInput(){
+        Scanner s = new Scanner(System.in);
+        int inputCount = 0;
+        while (inputCount <= 6) {
+            inputCount++;
+            String input = s.next();
+            if (!validate(input)) {
+                System.out.println("Wrong Input，Input again");
+                continue;
+            }
+            else{
+                guess(input);
+            }
+        }
+        return inputCount;
+    }
 }

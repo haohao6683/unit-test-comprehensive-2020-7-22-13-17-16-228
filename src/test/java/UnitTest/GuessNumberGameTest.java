@@ -13,7 +13,7 @@ public class GuessNumberGameTest {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "1234";   
+        String inputString = "1234";
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
@@ -121,4 +121,17 @@ public class GuessNumberGameTest {
         assertTrue(StringUtils.isNotBlank(answer));
     }
 
+    @Test
+    void should_return_a_result_when_input_string_from_console() {
+        //given
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        String answer = answerGenerator.generateAnswer(4);
+        GuessNumberGame game = new GuessNumberGame(answer);
+
+        //when
+        int inputCount = game.getInput();
+
+        //then
+        assertTrue(StringUtils.isNotBlank(String.valueOf(inputCount)));
+    }
 }
