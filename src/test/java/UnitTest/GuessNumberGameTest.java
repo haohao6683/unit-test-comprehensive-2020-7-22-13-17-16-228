@@ -93,12 +93,12 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    void should_return_0A0B_when_guess_given_5678() {
+    void should_return_0A0B_when_guess_given_6789() {
         //given
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
 
-        String inputString = "5678";
+        String inputString = "6789";
         String answer = answerGenerator.generateAnswer(4);
         GuessNumberGame game = new GuessNumberGame(answer);
 
