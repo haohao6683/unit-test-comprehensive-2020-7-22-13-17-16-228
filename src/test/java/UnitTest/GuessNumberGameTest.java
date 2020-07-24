@@ -1,6 +1,7 @@
 package UnitTest;
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 
@@ -11,7 +12,7 @@ import static org.mockito.Mockito.when;
 public class GuessNumberGameTest {
     private GuessNumberGame game;
 
-    @Before
+    @BeforeEach
     public void setup() {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswer(4)).thenReturn("1234");
@@ -22,7 +23,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_4A0B_when_guess_given_1234() {
         //given
-        setup();
         String inputString = "1234";
 
         //when
@@ -35,7 +35,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_2A2B_when_guess_given_1324() {
         //given
-        setup();
         String inputString = "1324";
 
         //when
@@ -48,7 +47,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_1A1B_when_guess_given_1467() {
         //given
-        setup();
         String inputString = "1467";
 
         //when
@@ -61,7 +59,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A4B_when_guess_given_4321() {
         //given
-        setup();
         String inputString = "4321";
 
         //when
@@ -74,7 +71,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A1B_when_guess_given_5681() {
         //given
-        setup();
         String inputString = "5681";
 
         //when
@@ -87,7 +83,6 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A0B_when_guess_given_6789() {
         //given
-        setup();
         String inputString = "6789";
 
         //when
