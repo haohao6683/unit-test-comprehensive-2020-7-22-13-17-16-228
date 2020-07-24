@@ -1,11 +1,10 @@
 package UnitTest;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class GuessNumberGame {
-    private String answer;
+public class GuessNumberGame implements Game{
+    private final String answer;
 
     public GuessNumberGame(String answer) {
         this.answer = answer;
@@ -15,9 +14,8 @@ public class GuessNumberGame {
         if(inputString.equals(answer)){
             return "4A0B";
         }
-        String result = "";
-        char inputList[] = inputString.toCharArray();
-        char answerList[] = answer.toCharArray();
+        char[] inputList = inputString.toCharArray();
+        char[] answerList = answer.toCharArray();
 
         int aNum = generateA(inputList,answerList);
         int bNum = generateB(inputList,answerList);
@@ -53,19 +51,16 @@ public class GuessNumberGame {
         if (!input.matches("\\d{4}")) {//0-9 number
             return false;
         }
-        HashSet<String> hashSet = new HashSet<String>();
+        HashSet<String> hashSet = new HashSet<>();
         for (int i = 0; i < input.length(); i++) {
             hashSet.add(String.valueOf(input.charAt(i)));
         }
-        if (hashSet.size() != input.length()) {
-            return false;
-        }
+        return hashSet.size() == input.length();
 //        for (int i = 0; i < 4; i++) {
 //            if (input.lastIndexOf(input.charAt(i)) > i) {//查重
 //                return false;
 //            }
 //        }
-        return true;
     }
 
     public int getInput(){
@@ -76,7 +71,6 @@ public class GuessNumberGame {
             String input = s.next();
             if (!validate(input)) {
                 System.out.println("Wrong Input，Input again");
-                continue;
             }
             else{
                 guess(input);

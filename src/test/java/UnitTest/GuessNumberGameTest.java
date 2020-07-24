@@ -1,21 +1,29 @@
 package UnitTest;
 
-import org.junit.jupiter.api.*;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 public class GuessNumberGameTest {
+    private GuessNumberGame game;
+
+    @Before
+    public void setup() {
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
+        String answer = answerGenerator.generateAnswer(4);
+        game = new GuessNumberGame(answer);
+    }
+
     @Test
     void should_return_4A0B_when_guess_given_1234() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "1234";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -27,12 +35,8 @@ public class GuessNumberGameTest {
     @Test
     void should_return_2A2B_when_guess_given_1324() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "1324";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -44,12 +48,8 @@ public class GuessNumberGameTest {
     @Test
     void should_return_1A1B_when_guess_given_1467() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "1467";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -61,12 +61,8 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A4B_when_guess_given_4321() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "4321";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -78,12 +74,8 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A1B_when_guess_given_5681() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "5681";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -95,12 +87,8 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A0B_when_guess_given_6789() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer(4)).thenReturn("1234");
-
+        setup();
         String inputString = "6789";
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
 
         //when
         String guessResult = game.guess(inputString);
@@ -119,19 +107,5 @@ public class GuessNumberGameTest {
 
         //then
         assertTrue(StringUtils.isNotBlank(answer));
-    }
-
-    @Test
-    void should_return_a_result_when_input_string_from_console() {
-        //given
-        AnswerGenerator answerGenerator = new AnswerGenerator();
-        String answer = answerGenerator.generateAnswer(4);
-        GuessNumberGame game = new GuessNumberGame(answer);
-
-        //when
-        int inputCount = game.getInput();
-
-        //then
-        assertTrue(StringUtils.isNotBlank(String.valueOf(inputCount)));
     }
 }
