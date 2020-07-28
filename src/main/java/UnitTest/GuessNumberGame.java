@@ -20,11 +20,9 @@ public class GuessNumberGame implements Game{
     }
     private int generateBCount(char[] inputList, char[] answerList) {
         int bNum = 0;
-        //todo index naming
-        //todo stream
-        for(int i=0; i < inputList.length; i++)
-            for(int j=0; j < answerList.length; j++){
-                if(i != j && inputList[i] == answerList[j]){
+        for(int indexA=0; indexA < inputList.length; indexA++)
+            for(int indexB=0; indexB < answerList.length; indexB++){
+                if(indexA != indexB && inputList[indexA] == answerList[indexB]){
                     bNum++;
                 }
             }
@@ -33,8 +31,8 @@ public class GuessNumberGame implements Game{
 
     private int generateACount(char[] inputList, char[] answerList) {
         int aNum = 0;
-        for(int i=0; i<inputList.length; i++){
-            if(inputList[i] == answerList[i]){
+        for(int index=0; index<inputList.length; index++){
+            if(inputList[index] == answerList[index]){
                 aNum++;
             }
         }
