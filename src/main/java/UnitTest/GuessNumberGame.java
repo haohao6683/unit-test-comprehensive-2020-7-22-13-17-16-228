@@ -51,12 +51,6 @@ public class GuessNumberGame implements Game{
             hashSet.add(String.valueOf(input.charAt(i)));
         }
         return hashSet.size() == input.length();
-        //todo useless
-//        for (int i = 0; i < 4; i++) {
-//            if (input.lastIndexOf(input.charAt(i)) > i) {//查重
-//                return false;
-//            }
-//        }
     }
 
     public int getInput(){
