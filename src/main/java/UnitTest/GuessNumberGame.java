@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class GuessNumberGame implements Game{
+    public static final String WRONG_INPUT_INPUT_AGAIN = "Wrong Input，Input again";
     private final String answer;
 
     public GuessNumberGame(String answer) {
@@ -60,8 +61,7 @@ public class GuessNumberGame implements Game{
             inputCount++;
             String input = s.next();
             if (!validate(input)) {
-                //todo magic number
-                System.out.println("Wrong Input，Input again");
+                System.out.println(WRONG_INPUT_INPUT_AGAIN);
             }
             else{
                 guessNumber(input);
