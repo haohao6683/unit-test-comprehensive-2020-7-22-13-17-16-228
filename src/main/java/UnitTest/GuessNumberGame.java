@@ -16,8 +16,7 @@ public class GuessNumberGame implements Game{
 
         int aNum = generateACount(inputList,answerList);
         int bNum = generateBCount(inputList,answerList);
-        //todo String.format
-        return aNum + "A" + bNum + "B";
+        return String.format("%sA%sB",aNum,bNum);
     }
     private int generateBCount(char[] inputList, char[] answerList) {
         int bNum = 0;
