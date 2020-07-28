@@ -5,21 +5,21 @@ import java.util.List;
 import java.util.Random;
 
 public class AnswerGenerator implements Generator{
-    public String generateAnswer(int number) {
+    public String generateAnswer(int length) {
         Random random = new Random();
-        int[] nums = new int[number];
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(i);
+        int[] nums = new int[length];
+        List<Integer> numberFrom0to9 = new ArrayList<>();
+        for (int index = 0; index < 10; index++) {
+            numberFrom0to9.add(index);
         }
-        for (int i = 0; i < 4; i++) {
-            int k = random.nextInt(10 - i);
-            nums[i] = list.get(k);
-            list.remove(k);
+        for (int index = 0; index < length; index++) {
+            int k = random.nextInt(10 - index);
+            nums[index] = numberFrom0to9.get(k);
+            numberFrom0to9.remove(k);
         }
         StringBuilder answer = new StringBuilder();
-        for (int i : nums) {
-            answer.append(i);
+        for (int number : nums) {
+            answer.append(number);
         }
         return answer.toString();
     }
