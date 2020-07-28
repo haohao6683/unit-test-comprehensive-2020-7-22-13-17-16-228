@@ -1,9 +1,7 @@
 package UnitTest;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.StringUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -26,7 +24,7 @@ public class GuessNumberGameTest {
         String answer = "1234";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("4A0B", guessResult);
@@ -38,7 +36,7 @@ public class GuessNumberGameTest {
         String answer = "1324";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("2A2B", guessResult);
@@ -50,7 +48,7 @@ public class GuessNumberGameTest {
         String answer = "1467";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("1A1B", guessResult);
@@ -62,7 +60,7 @@ public class GuessNumberGameTest {
         String answer = "4321";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("0A4B", guessResult);
@@ -74,7 +72,7 @@ public class GuessNumberGameTest {
         String answer = "5681";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("0A1B", guessResult);
@@ -86,7 +84,7 @@ public class GuessNumberGameTest {
         String answer = "6789";
 
         //when
-        String guessResult = game.guess(answer);
+        String guessResult = game.guessNumber(answer);
 
         //then
         assertEquals("0A0B", guessResult);

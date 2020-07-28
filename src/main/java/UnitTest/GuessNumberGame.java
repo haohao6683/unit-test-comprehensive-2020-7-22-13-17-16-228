@@ -10,18 +10,16 @@ public class GuessNumberGame implements Game{
         this.answer = answer;
     }
 
-    //todo guessNumber
-    public String guess(String inputString){
-        char[] inputList = inputString.toCharArray();
-        char[] answerList = answer.toCharArray();
+    public String guessNumber(String answer){
+        char[] inputList = answer.toCharArray();
+        char[] answerList = this.answer.toCharArray();
 
-        int aNum = generateA(inputList,answerList);
-        int bNum = generateB(inputList,answerList);
+        int aNum = generateACount(inputList,answerList);
+        int bNum = generateBCount(inputList,answerList);
         //todo String.format
         return aNum + "A" + bNum + "B";
     }
-    //todo method name
-    private int generateB(char[] inputList, char[] answerList) {
+    private int generateBCount(char[] inputList, char[] answerList) {
         int bNum = 0;
         //todo index naming
         //todo stream
@@ -34,7 +32,7 @@ public class GuessNumberGame implements Game{
         return bNum;
     }
 
-    private int generateA(char[] inputList, char[] answerList) {
+    private int generateACount(char[] inputList, char[] answerList) {
         int aNum = 0;
         for(int i=0; i<inputList.length; i++){
             if(inputList[i] == answerList[i]){
@@ -67,7 +65,6 @@ public class GuessNumberGame implements Game{
     public int getInput(){
         Scanner s = new Scanner(System.in);
         int inputCount = 0;
-        //todo
         while (inputCount <= 6) {
             inputCount++;
             String input = s.next();
@@ -76,7 +73,7 @@ public class GuessNumberGame implements Game{
                 System.out.println("Wrong Input，Input again");
             }
             else{
-                guess(input);
+                guessNumber(input);
             }
         }
         return inputCount;
